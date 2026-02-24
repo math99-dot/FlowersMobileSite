@@ -1,34 +1,67 @@
 
-/* Global Styles */
+
+/* --------------------------------------------
+   GLOBAL STYLES & RESET
+   -------------------------------------------- */
 * {
     box-sizing: border-box;
-}
-
-html, body {
-    height: 100%;
     margin: 0;
     padding: 0;
 }
 
+html, body {
+    height: 100%;
+}
+
 body {
-    font-family: 'Segoe UI', sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #fff9fb;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    line-height: 1.6;
 }
 
+/* Main content area - expands to push footer down */
 main {
     flex: 1 0 auto;
     padding: 20px;
 }
 
+/* Headings styling */
 h1, h2 {
     text-align: center;
     color: #b03060;
+    margin-bottom: 20px;
 }
 
-/* Header & Fancy Navigation */
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+    color: #b03060;
+    margin-bottom: 10px;
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+.subtitle {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 40px;
+}
+
+/* --------------------------------------------
+   HEADER & NAVIGATION
+   -------------------------------------------- */
 header {
     display: flex;
     justify-content: space-between;
@@ -39,6 +72,7 @@ header {
     top: 0;
     z-index: 1000;
     flex-shrink: 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .logo {
@@ -47,6 +81,7 @@ header {
     color: #b03060;
 }
 
+/* Desktop navigation menu */
 nav {
     display: flex;
     gap: 15px;
@@ -69,13 +104,18 @@ nav a:hover {
     transform: translateY(-3px);
 }
 
-/* Hamburger */
+/* Hamburger menu icon - hidden on desktop */
 .hamburger {
     display: none;
     font-size: 26px;
     cursor: pointer;
+    color: #b03060;
+    user-select: none;
 }
 
+/* --------------------------------------------
+   MOBILE RESPONSIVE NAVIGATION
+   -------------------------------------------- */
 @media (max-width: 768px) {
     header {
         padding: 15px 20px;
@@ -85,6 +125,7 @@ nav a:hover {
         font-size: 18px;
     }
     
+    /* Hide navigation by default on mobile */
     nav {
         display: none;
         flex-direction: column;
@@ -97,26 +138,22 @@ nav a:hover {
         box-shadow: 0 8px 20px rgba(0,0,0,0.2);
     }
 
+    /* Show navigation when hamburger is clicked */
     nav.show {
         display: flex;
     }
 
+    /* Display hamburger icon on mobile */
     .hamburger {
         display: block;
     }
 }
 
-/* Image Styling */
-.hero-image {
-    width: 100%;
-    max-width: 1200px;
-    max-height: 400px;
-    object-fit: cover;
-    display: block;
-    margin: 0 auto;
-    border-radius: 10px;
-}
+/* --------------------------------------------
+   IMAGE GALLERY SECTIONS
+   -------------------------------------------- */
 
+/* Home page gallery - 3 column grid */
 .home-gallery {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -140,20 +177,7 @@ nav a:hover {
     box-shadow: 0 8px 20px rgba(0,0,0,0.2);
 }
 
-.flower {
-    text-align: center;
-    font-size: 2rem;
-    margin: 20px 0;
-}
-
-.text-block {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
-    line-height: 1.6;
-    text-align: center;
-}
-
+/* Gallery page - responsive grid */
 .gallery-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -176,7 +200,344 @@ nav a:hover {
     transform: scale(1.05);
 }
 
-@media (max-width: 600px) {
+/* --------------------------------------------
+   DECORATIVE ELEMENTS
+   -------------------------------------------- */
+.flower {
+    text-align: center;
+    font-size: 2rem;
+    margin: 20px 0;
+}
+
+/* --------------------------------------------
+   TEXT CONTENT BLOCKS
+   -------------------------------------------- */
+.text-block {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+    line-height: 1.8;
+    text-align: center;
+}
+
+.text-block h2 {
+    margin-bottom: 15px;
+}
+
+.text-block p {
+    text-align: left;
+}
+
+/* --------------------------------------------
+   SERVICES PAGE STYLES
+   -------------------------------------------- */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 30px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.service-card {
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.service-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.service-card h3 {
+    margin-bottom: 10px;
+}
+
+.service-link {
+    display: inline-block;
+    margin-top: 10px;
+    color: #b03060;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.service-link:hover {
+    color: #8b1c47;
+}
+
+/* --------------------------------------------
+   ABOUT PAGE STYLES
+   -------------------------------------------- */
+.about-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+    align-items: center;
+}
+
+.about-image img {
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.about-text {
+    text-align: left;
+}
+
+.values-section {
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 20px;
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.value-card {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.value-card:hover {
+    transform: translateY(-5px);
+}
+
+.value-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+/* --------------------------------------------
+   WEDDING PAGE STYLES
+   -------------------------------------------- */
+.wedding-services {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.service-item {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.service-item:hover {
+    transform: translateY(-5px);
+}
+
+.service-item h3 {
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+}
+
+/* --------------------------------------------
+   FAQ PAGE STYLES
+   -------------------------------------------- */
+.faq-item {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 25px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.faq-item:hover {
+    transform: translateY(-3px);
+}
+
+.faq-item h3 {
+    color: #b03060;
+    margin-bottom: 10px;
+}
+
+.faq-item p {
+    color: #333;
+    line-height: 1.8;
+}
+
+/* --------------------------------------------
+   CONTACT PAGE STYLES
+   -------------------------------------------- */
+.contact-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 25px;
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.contact-item {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.contact-item h3 {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+/* Contact form styling */
+form {
+    max-width: 600px;
+    margin: 30px auto;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+form label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #b03060;
+}
+
+form input, form textarea {
+    margin-bottom: 20px;
+    padding: 12px;
+    border-radius: 8px;
+    border: 2px solid #f8c8dc;
+    font-size: 16px;
+    font-family: inherit;
+    transition: border-color 0.3s ease;
+}
+
+form input:focus, form textarea:focus {
+    outline: none;
+    border-color: #b03060;
+}
+
+form textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+form button {
+    padding: 14px;
+    border-radius: 25px;
+    border: none;
+    background-color: #b03060;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+form button:hover {
+    background-color: #8b1c47;
+    transform: translateY(-2px);
+}
+
+#formMessage {
+    margin-top: 15px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* --------------------------------------------
+   CALL-TO-ACTION ELEMENTS
+   -------------------------------------------- */
+.cta-section {
+    background: linear-gradient(135deg, #f8c8dc, #ffd1dc);
+    padding: 40px;
+    border-radius: 15px;
+    margin: 40px auto;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 15px 40px;
+    background-color: #b03060;
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: 18px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    margin-top: 20px;
+}
+
+.cta-button:hover {
+    background-color: #8b1c47;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+}
+
+/* --------------------------------------------
+   FOOTER
+   -------------------------------------------- */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #f8c8dc;
+    margin-top: auto;
+    flex-shrink: 0;
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.05);
+}
+
+footer p {
+    margin: 0;
+    color: #b03060;
+    font-weight: 500;
+}
+
+/* --------------------------------------------
+   MOBILE RESPONSIVE ADJUSTMENTS
+   -------------------------------------------- */
+@media (max-width: 768px) {
+    main {
+        padding: 10px;
+    }
+    
+    h1 {
+        font-size: 1.8rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
     .home-gallery {
         grid-template-columns: 1fr;
         padding: 15px;
@@ -198,78 +559,26 @@ nav a:hover {
     .flower {
         font-size: 1.5rem;
     }
-}
-
-.image-box {
-    width: 100%;
-    max-width: 600px;
-    height: 300px;
-    background-color: #f0f0f0;
-    margin: 20px auto;
-    border-radius: 10px;
-}
-
-/* Contact Form */
-form {
-    max-width: 500px;
-    margin: 30px auto;
-    display: flex;
-    flex-direction: column;
-    padding: 0 20px;
-}
-
-form input, form textarea {
-    margin-bottom: 12px;
-    padding: 10px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    font-size: 16px;
-}
-
-form textarea {
-    min-height: 120px;
-    resize: vertical;
-}
-
-form button {
-    padding: 12px;
-    border-radius: 25px;
-    border: none;
-    background-color: #b03060;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.3s;
-    font-size: 16px;
-}
-
-form button:hover {
-    background-color: #8b1c47;
-}
-
-/* Footer - Sticky at bottom */
-footer {
-    text-align: center;
-    padding: 15px;
-    background-color: #f8c8dc;
-    margin-top: auto;
-    flex-shrink: 0;
-}
-
-footer p {
-    margin: 0;
-}
-
-@media (max-width: 768px) {
-    main {
-        padding: 10px;
-    }
-    
-    h1 {
-        font-size: 1.5rem;
-    }
     
     form {
-        padding: 0 15px;
+        padding: 20px 15px;
+    }
+    
+    .about-section {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .services-grid,
+    .wedding-services,
+    .values-grid {
+        grid-template-columns: 1fr;
+        padding: 15px;
+    }
+}
+
+@media (max-width: 600px) {
+    .contact-info {
+        grid-template-columns: 1fr;
     }
 }
