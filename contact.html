@@ -3,17 +3,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact | Flowers by Clara</title>
     <link rel="stylesheet" href="style.css">
     <script defer src="script.js"></script>
 </head>
 <body>
 
+<!-- HEADER: Contains logo and hamburger navigation menu -->
 <header>
     <div class="logo">Flowers by Clara</div>
     <div class="hamburger" onclick="toggleMenu()">☰</div>
     <nav id="navMenu">
         <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
         <a href="wedding.html">Weddings</a>
         <a href="gallery.html">Gallery</a>
         <a href="faq.html">FAQ</a>
@@ -21,18 +24,43 @@
     </nav>
 </header>
 
+<!-- MAIN CONTENT SECTION -->
 <main>
     <h1>Contact Us</h1>
-    <p>Have questions or want to place an order? Fill out the form below!</p>
+    <p>Questions or want to order? Fill out the form or contact us directly!</p>
 
+    <!-- CONTACT INFORMATION -->
+    <div class="contact-info">
+        <div class="contact-item">
+            <h3>Address</h3>
+            <p>123 Flower Street<br>Garden City, State 12345</p>
+        </div>
+        <div class="contact-item">
+            <h3>Phone</h3>
+            <p>(555) 123-4567</p>
+        </div>
+        <div class="contact-item">
+            <h3>Email</h3>
+            <p>info@flowersclara.com</p>
+        </div>
+        <div class="contact-item">
+            <h3>Hours</h3>
+            <p>Mon-Fri: 9am-6pm<br>Sat: 10am-4pm<br>Sun: Closed</p>
+        </div>
+    </div>
+
+    <!-- CONTACT FORM: Allows users to send messages -->
     <form id="contactForm">
-        <label>Name:</label>
+        <label for="name">Name:</label>
         <input type="text" id="name" required>
 
-        <label>Email:</label>
+        <label for="email">Email:</label>
         <input type="email" id="email" required>
 
-        <label>Message:</label>
+        <label for="phone">Phone (optional):</label>
+        <input type="tel" id="phone">
+
+        <label for="message">Message:</label>
         <textarea id="message" required></textarea>
 
         <button type="submit">Send Message</button>
@@ -40,6 +68,7 @@
     </form>
 </main>
 
+<!-- FOOTER: Copyright information -->
 <footer>
     <p>© 2026 Flowers by Clara</p>
 </footer>
